@@ -1,6 +1,12 @@
 import React from "react";
 import directory from "../directory.json";
 
+
+// TODO use callbacks to have react wait to display the state until after the switch finishes
+
+// TODO if there are multiple ghosts display ONLY what attributes can be used to pare down the number of ghosts in the list 
+
+
 class Wrapper extends React.Component {
     // options for the ghost will be confirmed unknown or excluded clicking will cycle through the states
     state = {
@@ -43,34 +49,26 @@ class Wrapper extends React.Component {
         }
         this.renderList();
     };
-
-    // var newArray = directory.filter(function (el) {
-    //     return el.Freezing === this.state.Freezing &&
-    //     el.EMF5 === this.state.EMF5 &&
-    //     el.Orbs === this.state.Orbs &&
-    //     el.SpiritBox === this.state.SpiritBox &&
-    //     el.GhostWriting === this.state.GhostWriting &&
-    //     el.Fingerprints === this.state.Fingerprints
-    // });
-
     renderList = () => {
-
-        console.log('render list function reached');
-        console.log(this.state);
-
+        // console.log('render list function reached');
+        // console.log(this.state);
+        let freeze = this.state.Freezing;
+        let EMF5 = this.state.EMF5;
+        let Orbs = this.state.Orbs;
+        let SpiritBox = this.state.SpiritBox;
+        let GhostWriting = this.state.GhostWriting;
+        let Fingerprints = this.state.Fingerprints;
         function ghostFilter(dir) {
             console.log("inside ghost filter function");
-
-            console.log(dir);
-
-            return dir.Freezing === "confirmed";
+            return (dir.Freezing === freeze || 'unknown'=== freeze) &&
+                (dir.EMF5 === EMF5 || 'unknown'=== EMF5) &&
+                (dir.Orbs === Orbs || 'unknown'=== Orbs) &&
+                (dir.SpiritBox === SpiritBox || 'unknown'=== SpiritBox) &&
+                (dir.GhostWriting === GhostWriting || 'unknown'=== GhostWriting) &&
+                (dir.Fingerprints === Fingerprints || 'unknown'=== Fingerprints);
         }
 
         this.setState({ sortedList: directory.filter(ghostFilter) })
-
-
-        // this.setState({ sortedList: directory.sort((a, b) => (a.Freezing > b.Freezing) ? 1 : -1) })
-        // this.setState({ sortedList: directory.filter() })
     };
 
 
@@ -84,34 +82,46 @@ class Wrapper extends React.Component {
                         <button value="Freezing" onClick={this.buttonPress}>
                             Freezing
                         </button>{" "}
+                        Freezing: {this.state.Freezing}
                     </div>
                     <div>
                         <button value="EMF5" onClick={this.buttonPress}>
                             EMF5
                         </button>{" "}
+                        EMF5: {this.state.EMF5}
                     </div>
                     <div>
                         <button value="Orbs" onClick={this.buttonPress}>
                             Orbs
                         </button>{" "}
+                        Orbs: {this.state.Orbs}
                     </div>
                     <div>
                         <button value="SpiritBox" onClick={this.buttonPress}>
-                            Spirit Box
+                            SpiritBox
                         </button>{" "}
+                        SpiritBox: {this.state.SpiritBox}
                     </div>
                     <div>
                         <button value="GhostWriting" onClick={this.buttonPress}>
                             Ghost Writing
                         </button>{" "}
+                        GhostWriting: {this.state.GhostWriting}
                     </div>
                     <div>
                         <button value="Fingerprints" onClick={this.buttonPress}>
                             Fingerprints
                         </button>{" "}
+                        Fingerprints: {this.state.Fingerprints}
+                    </div>
+                    <div>
+                        <button  onClick={this.buttonPress}>
+                            update list
+                        </button>{" "}
                     </div>
 
                     {/* button div */}
+
 
 
 
