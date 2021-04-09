@@ -44,10 +44,31 @@ class Wrapper extends React.Component {
         this.renderList();
     };
 
+    // var newArray = directory.filter(function (el) {
+    //     return el.Freezing === this.state.Freezing &&
+    //     el.EMF5 === this.state.EMF5 &&
+    //     el.Orbs === this.state.Orbs &&
+    //     el.SpiritBox === this.state.SpiritBox &&
+    //     el.GhostWriting === this.state.GhostWriting &&
+    //     el.Fingerprints === this.state.Fingerprints
+    // });
+
     renderList = () => {
 
         console.log('render list function reached');
         console.log(this.state);
+
+        function ghostFilter(dir) {
+            console.log("inside ghost filter function");
+
+            console.log(dir);
+
+            return dir.Freezing === "confirmed";
+        }
+
+        this.setState({ sortedList: directory.filter(ghostFilter) })
+
+
         // this.setState({ sortedList: directory.sort((a, b) => (a.Freezing > b.Freezing) ? 1 : -1) })
         // this.setState({ sortedList: directory.filter() })
     };
