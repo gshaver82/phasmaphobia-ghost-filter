@@ -47,6 +47,9 @@ class Wrapper extends React.Component {
             default:
                 console.log('ERROR default reached');
         }
+
+        
+        
         this.renderList();
     };
     renderList = () => {
@@ -69,8 +72,9 @@ class Wrapper extends React.Component {
         }
 
         this.setState({ sortedList: directory.filter(ghostFilter) })
+        console.log('this.state');
+        console.log(this.state);
     };
-
 
     render() {
         return (
