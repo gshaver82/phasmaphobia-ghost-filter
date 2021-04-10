@@ -134,7 +134,16 @@ class Wrapper extends React.Component {
                     <ul className="list-group">
                         {this.state.sortedList.map(result => (
                             <li className="list-group-item" key={result.id}>
-                                {result.Name} --- {result.Strengths} --- {result.Weaknesses}
+                                
+                                <p>{result.Name} </p>
+                                <h3>Strengths</h3>
+                                <p>{result.Strengths}</p>
+                                <h3>Weaknesses</h3>
+                                <p>{result.Weaknesses}</p>
+                                <h3>Power</h3>
+                                <p>{result.Power}</p>
+                                <h3>Notes</h3>
+                                <p>{result.Notes}</p>
                             </li>
                         ))}
                     </ul>
