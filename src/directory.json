@@ -10,7 +10,7 @@
         "Fingerprints": "confirmed",
         "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the building or the game.",
         "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
-        "Power":"Once a Banshee uses its power, it will begin to navigate to its chosen target. Line-of-sight blockers and hiding have no effect on the Banshee's ability to navigate to the player, and it will be able to reach them. It will not actually follow the player, but it will mark the target's location at the time its power was used. After reaching the location, it will wait ~20 seconds, then proceed to begin a Hunt if the player has been within direct line-of-sight of the Banshee during this waiting time. Originally, the Banshee would never switch targets unless the target died or left the game, and would cancel its ability if no players are in the building, disabling its ability to hunt. As of v0.26.5. however, Banshees are now able to freely hunt other players if its target is absent from the building. The Banshee is capable of hunting players that are very far away from the ghost room who think they are safe, even on the largest of maps. A Banshee that uses its power to hunt before the ghost room is located can also trick players into thinking the ghost room is close, as they hear the ghost nearby, when in reality the Banshee has just walked from a different location of the map to the player. Unless the target is outside, the Banshee can ignore Sanity and typical hunting rules, meaning it can potentially begin a Hunt with its power within moments of the hunters entering the location on Professional or Intermediate difficulties. A hunt beginning very early on while all players have high Sanity is a very strong sign of a Banshee using its power. The Banshee will also ignore players that are not its target during a hunt, allowing for easy photos and little need to hide while the target is known, assuming they do not leave the building or are killed. ",
+        "Power":" A hunt beginning very early on while all players have high Sanity is a very strong sign of a Banshee using its power. The Banshee will also ignore players that are not its target during a hunt, allowing for easy photos and little need to hide while the target is known, assuming they do not leave the building or are killed. ",
         "Notes":""
     },
     {
@@ -22,8 +22,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "confirmed",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "Demons are the most aggressive ghosts and will begin Hunts more often. ",
+        "Weaknesses":"Asking a Demon successful questions on the Ouija Board won't lower the user's sanity. ",
         "Power":"",
         "Notes":""
     },
@@ -36,8 +36,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "excluded",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "A Jinn will travel at a faster speed if its victim is far away.",
+        "Weaknesses":"Turning off the location's power source will prevent the Jinn from using its ability.",
         "Power":"",
         "Notes":""
     },
@@ -50,8 +50,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "excluded",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "Increased chance to attack in the dark. As such, it will do what it can to achieve this, such as turning off lights and tripping the fuse box. ",
+        "Weaknesses":"Turning the lights on will lower its chance to attack. ",
         "Power":"",
         "Notes":""
     },
@@ -64,8 +64,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "confirmed",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "Oni are more active when people are nearby and have been seen moving objects at great speed. ",
+        "Weaknesses":"Being more active will make the Oni easier to find and identify. ",
         "Power":"",
         "Notes":""
     },
@@ -78,8 +78,8 @@
         "SpiritBox": "excluded",
         "GhostWriting": "excluded",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "Looking at a Phantom will considerably drop your Sanity. This refers to any visible manifestations of the Phantom, including during a Hunt. ",
+        "Weaknesses":"Taking a photo of the Phantom will make it temporarily disappear. This, however, will not stop a Hunt. ",
         "Power":"",
         "Notes":""
     },
@@ -92,8 +92,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "excluded",
         "Fingerprints": "confirmed",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": " A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once. ",
+        "Weaknesses":"A Poltergeist is almost ineffective in an empty room. ",
         "Power":"",
         "Notes":""
     },
@@ -106,8 +106,8 @@
         "SpiritBox": "excluded",
         "GhostWriting": "confirmed",
         "Fingerprints": "confirmed",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "A Revenant will travel at a significantly faster (2x) speed when hunting a victim. Additionally, the Revenant can freely switch whoever it is targeting during a Hunt. ",
+        "Weaknesses":"Hiding from the Revenant will cause it to move at a significantly reduced (0.5x) speed. ",
         "Power":"",
         "Notes":""
     },
@@ -120,8 +120,8 @@
         "SpiritBox": "excluded",
         "GhostWriting": "confirmed",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "As a shy ghost, a Shade will rarely perform actions in the presence of two or more people, making it harder to detect. ",
+        "Weaknesses":"Conversely, a Shade will rarely start a Hunt when players are grouped together. ",
         "Power":"",
         "Notes":""
     },
@@ -134,8 +134,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "confirmed",
         "Fingerprints": "confirmed",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "The spirit has no discernible strengths, however it is known to increase its hunting as your sanity drops. ",
+        "Weaknesses":"Using Smudge Sticks on a Spirit will stop it attacking for 180 seconds instead of 90.",
         "Power":"",
         "Notes":""
     },
@@ -148,8 +148,8 @@
         "SpiritBox": "confirmed",
         "GhostWriting": "excluded",
         "Fingerprints": "confirmed",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": " Wraiths almost never touch the ground, but this does not apply to the ghost model. Because of this, footprint sounds from a wraith will be rare to non-existent, and they can travel directly through walls doors without having to open them. ",
+        "Weaknesses":"Wraiths have a toxic reaction to Salt. If a Wraith comes into contact with a pile of salt, Ghost Activity will significantly increase. ",
         "Power":"",
         "Notes":""
     },
@@ -162,8 +162,8 @@
         "SpiritBox": "excluded",
         "GhostWriting": "confirmed",
         "Fingerprints": "excluded",
-        "Strengths": "A Banshee will focus on one player at a time until it kills them or the player leaves the game.",
-        "Weaknesses":"Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it.",
+        "Strengths": "Yurei have been known to have a stronger effect on people's Sanity during a manifestation. ",
+        "Weaknesses":"Using Smudge Sticks on the Yurei will cause it to not wander around the location for ~90 seconds. ",
         "Power":"",
         "Notes":""
     }
