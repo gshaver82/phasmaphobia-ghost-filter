@@ -21,35 +21,33 @@ class Wrapper extends React.Component {
 
     // this function takes in the button value and assigns it to ghost attributes
     //based on that value it changes the state from unknown to confirmed to excluded and back to unknown in that order
-    buttonPress = event => {
+    buttonPress = async event => {
         let ghostAttribute = event.target.value;
         // console.log(ghostAttribute);
-        //gives and error identifier expected but that is a bogus error message
+        //gives an error identifier expected but that is a bogus error message
+        
         switch (this.state.[ghostAttribute]) {
             case 'unknown':
-                console.log('unknown to confirmed');
-                this.setState({
+                // console.log('unknown to confirmed');
+                await this.setState({
                     [ghostAttribute]: 'confirmed'
                 });
                 break;
             case 'confirmed':
-                console.log('confirmed to excluded');
-                this.setState({
+                // console.log('confirmed to excluded');
+                await this.setState({
                     [ghostAttribute]: 'excluded'
                 });
                 break;
             case 'excluded':
-                console.log('excluded to unknown');
-                this.setState({
+                // console.log('excluded to unknown');
+                await this.setState({
                     [ghostAttribute]: 'unknown'
                 });
                 break;
             default:
                 console.log('ERROR default reached');
         }
-
-        
-        
         this.renderList();
     };
     renderList = () => {
@@ -63,17 +61,20 @@ class Wrapper extends React.Component {
         let Fingerprints = this.state.Fingerprints;
         function ghostFilter(dir) {
             console.log("inside ghost filter function");
-            return (dir.Freezing === freeze || 'unknown'=== freeze) &&
-                (dir.EMF5 === EMF5 || 'unknown'=== EMF5) &&
-                (dir.Orbs === Orbs || 'unknown'=== Orbs) &&
-                (dir.SpiritBox === SpiritBox || 'unknown'=== SpiritBox) &&
-                (dir.GhostWriting === GhostWriting || 'unknown'=== GhostWriting) &&
-                (dir.Fingerprints === Fingerprints || 'unknown'=== Fingerprints);
+            return (dir.Freezing === freeze || 'unknown' === freeze) &&
+                (dir.EMF5 === EMF5 || 'unknown' === EMF5) &&
+                (dir.Orbs === Orbs || 'unknown' === Orbs) &&
+                (dir.SpiritBox === SpiritBox || 'unknown' === SpiritBox) &&
+                (dir.GhostWriting === GhostWriting || 'unknown' === GhostWriting) &&
+                (dir.Fingerprints === Fingerprints || 'unknown' === Fingerprints);
         }
 
         this.setState({ sortedList: directory.filter(ghostFilter) })
+
+        
         console.log('this.state');
         console.log(this.state);
+
     };
 
     render() {
@@ -119,7 +120,7 @@ class Wrapper extends React.Component {
                         Fingerprints: {this.state.Fingerprints}
                     </div>
                     <div>
-                        <button  onClick={this.buttonPress}>
+                        <button onClick={this.buttonPress}>
                             update list
                         </button>{" "}
                     </div>
