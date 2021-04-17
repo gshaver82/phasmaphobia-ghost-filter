@@ -162,6 +162,18 @@ class Wrapper extends React.Component {
             }
         }
     };
+    detailsbuttonPress = event => {
+        let value = event.target.value;
+        console.log('value' + value);
+
+        if (event.target.nextSibling.className === 'collapse') {
+            event.target.nextSibling.className = '';
+        } else if (event.target.nextSibling.className === '') {
+            event.target.nextSibling.className = 'collapse';
+        }
+
+
+    };
     render() {
         return (
             <div>
@@ -240,10 +252,17 @@ class Wrapper extends React.Component {
                             <li className="list-group-item" key={result.id}>
 
                                 <h2>{result.Name} </h2>
-                                <p><strong>Strengths --- </strong>{result.Strengths}</p>
-                                <p><strong>Weaknesses --- </strong>{result.Weaknesses}</p>
-                                <p><strong>Power --- </strong>{result.Power}</p>
-                                <p><strong>Notes --- </strong>{result.Notes}</p>
+                                <button value={result.Name} type="button" className="btn btn-primary" onClick={this.detailsbuttonPress}>
+                                    Details
+                                </button>
+                                <div className='collapse' id={result.Name}>
+                                    <div className="card card-body">
+                                        <p><strong>Strengths --- </strong>{result.Strengths}</p>
+                                        <p><strong>Weaknesses --- </strong>{result.Weaknesses}</p>
+                                        <p><strong>Power --- </strong>{result.Power}</p>
+                                        <p><strong>Notes --- </strong>{result.Notes}</p>
+                                    </div>
+                                </div>
                             </li>
                         ))}
                     </ul>
