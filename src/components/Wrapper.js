@@ -5,8 +5,36 @@ import directory from "../directory.json";
 // TODO use callbacks to have react wait to display the state until after the switch finishes
 
 // TODO if there are multiple ghosts display ONLY what attributes can be used to pare down the number of ghosts in the list 
-
-
+let classNameConfirmed = 'btn btn-success btn-lg';
+let classNameUnknown = 'btn btn-secondary btn-lg';
+let classNameExcluded = 'btn btn-danger btn-lg';
+//this is for the button map function that doesnt work
+// let clues = [
+//     {
+//         "id": 1,
+//         "Name": "Freezing",
+//     },
+//     {
+//         "id": 2,
+//         "Name": "EMF5",
+//     },
+//     {
+//         "id": 3,
+//         "Name": "Orbs",
+//     },
+//     {
+//         "id": 4,
+//         "Name": "SpiritBox",
+//     },
+//     {
+//         "id": 5,
+//         "Name": "GhostWriting",
+//     },
+//     {
+//         "id": 6,
+//         "Name": "Fingerprints",
+//     },
+// ]
 class Wrapper extends React.Component {
     // options for the ghost will be confirmed unknown or excluded clicking will cycle through the states
     state = {
@@ -18,41 +46,39 @@ class Wrapper extends React.Component {
         GhostWriting: 'unknown',
         Fingerprints: 'unknown',
     };
-
     // this function takes in the button value and assigns it to ghost attributes
     //based on that value it changes the state from unknown to confirmed to excluded and back to unknown in that order
     buttonPress = async event => {
         let ghostAttribute = event.target.value;
-        // console.log(ghostAttribute);
+
+        console.log('event.target.value');
+        console.log(event.target.value);
         //gives an error identifier expected but that is a bogus error message
-        
         switch (this.state.[ghostAttribute]) {
             case 'unknown':
-                // console.log('unknown to confirmed');
                 await this.setState({
                     [ghostAttribute]: 'confirmed'
                 });
+                event.target.className = classNameConfirmed;
                 break;
             case 'confirmed':
-                // console.log('confirmed to excluded');
                 await this.setState({
                     [ghostAttribute]: 'excluded'
                 });
+                event.target.className = classNameExcluded;
                 break;
             case 'excluded':
-                // console.log('excluded to unknown');
                 await this.setState({
                     [ghostAttribute]: 'unknown'
                 });
+                event.target.className = classNameUnknown;
                 break;
             default:
                 console.log('ERROR default reached');
         }
-        this.renderList();
+        await this.renderList();
     };
-    renderList = () => {
-        // console.log('render list function reached');
-        // console.log(this.state);
+    renderList = async () => {
         let freeze = this.state.Freezing;
         let EMF5 = this.state.EMF5;
         let Orbs = this.state.Orbs;
@@ -60,6 +86,7 @@ class Wrapper extends React.Component {
         let GhostWriting = this.state.GhostWriting;
         let Fingerprints = this.state.Fingerprints;
         function ghostFilter(dir) {
+            //if you look at the console log, this runs TWELVE times, and i dont know why
             console.log("inside ghost filter function");
             return (dir.Freezing === freeze || 'unknown' === freeze) &&
                 (dir.EMF5 === EMF5 || 'unknown' === EMF5) &&
@@ -68,82 +95,61 @@ class Wrapper extends React.Component {
                 (dir.GhostWriting === GhostWriting || 'unknown' === GhostWriting) &&
                 (dir.Fingerprints === Fingerprints || 'unknown' === Fingerprints);
         }
-
-        this.setState({ sortedList: directory.filter(ghostFilter) })
-
-        
-        console.log('this.state');
-        console.log(this.state);
-
+        await this.setState({ sortedList: directory.filter(ghostFilter) })
     };
-
     render() {
         return (
             <div>
                 <div className="card-body">
+                    {/* this isnt working, occasionally a button will click and update. also the confirmed unknown etc state is borked
+                <div  className="buttongroup">
+                    {clues.map(result => (
+                        <button value={result.Name} type="button" className={classNameUnknown} key={result.id} onClick={this.buttonPress}>
 
+                            <h2>{result.Name} </h2>
+                            {this.state.{result.Name}}
+                        </button>
+                    ))}
+                </div> */}
                     {/* button div */}
                     <div>
-                        <button value="Freezing" onClick={this.buttonPress}>
-                            Freezing
-                        </button>{" "}
-                        Freezing: {this.state.Freezing}
-                    </div>
-                    <div>
-                        <button value="EMF5" onClick={this.buttonPress}>
-                            EMF5
-                        </button>{" "}
-                        EMF5: {this.state.EMF5}
-                    </div>
-                    <div>
-                        <button value="Orbs" onClick={this.buttonPress}>
-                            Orbs
-                        </button>{" "}
-                        Orbs: {this.state.Orbs}
-                    </div>
-                    <div>
-                        <button value="SpiritBox" onClick={this.buttonPress}>
-                            SpiritBox
-                        </button>{" "}
-                        SpiritBox: {this.state.SpiritBox}
-                    </div>
-                    <div>
-                        <button value="GhostWriting" onClick={this.buttonPress}>
-                            Ghost Writing
-                        </button>{" "}
-                        GhostWriting: {this.state.GhostWriting}
-                    </div>
-                    <div>
-                        <button value="Fingerprints" onClick={this.buttonPress}>
-                            Fingerprints
-                        </button>{" "}
-                        Fingerprints: {this.state.Fingerprints}
-                    </div>
-                    <div>
-                        <button onClick={this.buttonPress}>
-                            update list
-                        </button>{" "}
+                        <button value="Freezing" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>Freezing</strong></h4>
+                            {this.state.Freezing}
+                        </button>
+                        <button value="EMF5" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>EMF5</strong></h4>
+                            {this.state.EMF5}
+                        </button>
+                        <button value="Orbs" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>Orbs</strong></h4>
+                            {this.state.Orbs}
+                        </button>
+                        <button value="SpiritBox" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>SpiritBox</strong></h4>
+                            {this.state.SpiritBox}
+                        </button>
+                        <button value="GhostWriting" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>GhostWriting</strong></h4>
+                            {this.state.GhostWriting}
+                        </button>
+                        <button value="Fingerprints" type="button" className={classNameUnknown} onClick={this.buttonPress}>
+                            <h4><strong>Fingerprints</strong></h4>
+                            {this.state.Fingerprints}
+                        </button>
                     </div>
 
                     {/* button div */}
-
-
-
-
                     {/* list div */}
                     <ul className="list-group">
                         {this.state.sortedList.map(result => (
                             <li className="list-group-item" key={result.id}>
-                                
-                                <h3>{result.Name} </h3>
-                                <h4>Strengths</h4>
-                                <p>{result.Strengths}</p>
-                                <h4>Weaknesses</h4>
-                                <p>{result.Weaknesses}</p>
-                                <h4>Power</h4>
-                                <p>{result.Power}</p>
-                                {/* <h3>Notes</h3>
-                                <p>{result.Notes}</p> */}
+
+                                <h2>{result.Name} </h2>
+                                <p><strong>Strengths --- </strong>{result.Strengths}</p>
+                                <p><strong>Weaknesses --- </strong>{result.Weaknesses}</p>
+                                <p><strong>Power --- </strong>{result.Power}</p>
+                                <p><strong>Notes --- </strong>{result.Notes}</p>
                             </li>
                         ))}
                     </ul>
