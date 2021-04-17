@@ -45,14 +45,17 @@ class Wrapper extends React.Component {
         SpiritBox: 'unknown',
         GhostWriting: 'unknown',
         Fingerprints: 'unknown',
+        FreezingIsAClue: 'Check this!',
+        EMF5IsAClue: 'Check this!',
+        OrbsIsAClue: 'Check this!',
+        SpiritBoxIsAClue: 'Check this!',
+        GhostWritingIsAClue: 'Check this!',
+        FingerprintsIsAClue: 'Check this!'
     };
     // this function takes in the button value and assigns it to ghost attributes
     //based on that value it changes the state from unknown to confirmed to excluded and back to unknown in that order
     buttonPress = async event => {
         let ghostAttribute = event.target.value;
-
-        console.log('event.target.value');
-        console.log(event.target.value);
         //gives an error identifier expected but that is a bogus error message
         switch (this.state.[ghostAttribute]) {
             case 'unknown':
@@ -78,6 +81,7 @@ class Wrapper extends React.Component {
         }
         await this.renderList();
     };
+
     renderList = async () => {
         let freeze = this.state.Freezing;
         let EMF5 = this.state.EMF5;
@@ -95,7 +99,68 @@ class Wrapper extends React.Component {
                 (dir.GhostWriting === GhostWriting || 'unknown' === GhostWriting) &&
                 (dir.Fingerprints === Fingerprints || 'unknown' === Fingerprints);
         }
-        await this.setState({ sortedList: directory.filter(ghostFilter) })
+        let FilteredGhostList = directory.filter(ghostFilter);
+        await this.setState({ sortedList: FilteredGhostList });
+
+        await this.setState({ FreezingIsAClue: 'irrelevant' });
+        if (this.state.Freezing === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].Freezing;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].Freezing) {
+                    await this.setState({ FreezingIsAClue: 'Check this!' });
+                }
+            }
+        }
+
+        await this.setState({ EMF5IsAClue: 'irrelevant' });
+        if (this.state.EMF5 === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].EMF5;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].EMF5) {
+                    await this.setState({ EMF5IsAClue: 'Check this!' });
+                }
+            }
+        }
+
+        await this.setState({ OrbsIsAClue: 'irrelevant' });
+        if (this.state.Orbs === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].Orbs;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].Orbs) {
+                    await this.setState({ OrbsIsAClue: 'Check this!' });
+                }
+            }
+        }
+
+        await this.setState({ SpiritBoxIsAClue: 'irrelevant' });
+        if (this.state.SpiritBox === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].SpiritBox;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].SpiritBox) {
+                    await this.setState({ SpiritBoxIsAClue: 'Check this!' });
+                }
+            }
+        }
+
+        await this.setState({ GhostWritingIsAClue: 'irrelevant' });
+        if (this.state.GhostWriting === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].GhostWriting;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].GhostWriting) {
+                    await this.setState({ GhostWritingIsAClue: 'Check this!' });
+                }
+            }
+        }
+
+        await this.setState({ FingerprintsIsAClue: 'irrelevant' });
+        if (this.state.Fingerprints === 'unknown' && FilteredGhostList.length > 0) {
+            let firstResult = FilteredGhostList[0].Fingerprints;
+            for (let i = 0; i < FilteredGhostList.length; i++) {
+                if (firstResult !== FilteredGhostList[i].Fingerprints) {
+                    await this.setState({ FingerprintsIsAClue: 'Check this!' });
+                }
+            }
+        }
     };
     render() {
         return (
@@ -136,6 +201,35 @@ class Wrapper extends React.Component {
                         <button value="Fingerprints" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             <h4><strong>Fingerprints</strong></h4>
                             {this.state.Fingerprints}
+                        </button>
+                    </div>
+
+                    {/* button div */}
+                    {/* clue button div */}
+                    <div>
+                        <button value="Freezing" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>Freezing</strong></h4>
+                            {this.state.FreezingIsAClue}
+                        </button>
+                        <button value="EMF5" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>EMF5</strong></h4>
+                            {this.state.EMF5IsAClue}
+                        </button>
+                        <button value="Orbs" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>Orbs</strong></h4>
+                            {this.state.OrbsIsAClue}
+                        </button>
+                        <button value="SpiritBox" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>SpiritBox</strong></h4>
+                            {this.state.SpiritBoxIsAClue}
+                        </button>
+                        <button value="GhostWriting" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>GhostWriting</strong></h4>
+                            {this.state.GhostWritingIsAClue}
+                        </button>
+                        <button value="Fingerprints" type="button" className={classNameUnknown} disabled>
+                            <h4><strong>Fingerprints</strong></h4>
+                            {this.state.FingerprintsIsAClue}
                         </button>
                     </div>
 
