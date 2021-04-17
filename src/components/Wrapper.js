@@ -56,6 +56,7 @@ class Wrapper extends React.Component {
     //based on that value it changes the state from unknown to confirmed to excluded and back to unknown in that order
     buttonPress = async event => {
         let ghostAttribute = event.target.value;
+        // console.log('event.currentTarget ' + event.target);
         //gives an error identifier expected but that is a bogus error message
         switch (this.state.[ghostAttribute]) {
             case 'unknown':
@@ -163,16 +164,11 @@ class Wrapper extends React.Component {
         }
     };
     detailsbuttonPress = event => {
-        let value = event.target.value;
-        console.log('value' + value);
-
         if (event.target.nextSibling.className === 'collapse') {
             event.target.nextSibling.className = '';
         } else if (event.target.nextSibling.className === '') {
             event.target.nextSibling.className = 'collapse';
         }
-
-
     };
     render() {
         return (
@@ -189,29 +185,38 @@ class Wrapper extends React.Component {
                     ))}
                 </div> */}
                     {/* button div */}
+                    
+                    {/* if you assign html tags to the clues, the on click will not work properly. if you do current target, itll work, but then only change the word color */}
+            
                     <div>
                         <button value="Freezing" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>Freezing</strong></h4>
+                            Freezing
+                            <br></br>
                             {this.state.Freezing}
                         </button>
                         <button value="EMF5" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>EMF5</strong></h4>
+                            EMF5
+                            <br></br>
                             {this.state.EMF5}
                         </button>
                         <button value="Orbs" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>Orbs</strong></h4>
+                            Orbs
+                            <br></br>
                             {this.state.Orbs}
                         </button>
                         <button value="SpiritBox" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>SpiritBox</strong></h4>
+                            SpiritBox
+                            <br></br>
                             {this.state.SpiritBox}
                         </button>
                         <button value="GhostWriting" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>GhostWriting</strong></h4>
+                            GhostWriting
+                            <br></br>
                             {this.state.GhostWriting}
                         </button>
                         <button value="Fingerprints" type="button" className={classNameUnknown} onClick={this.buttonPress}>
-                            <h4><strong>Fingerprints</strong></h4>
+                            Fingerprints
+                            <br></br>
                             {this.state.Fingerprints}
                         </button>
                     </div>
