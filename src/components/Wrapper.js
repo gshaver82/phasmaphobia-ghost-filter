@@ -103,6 +103,12 @@ class Wrapper extends React.Component {
         let FilteredGhostList = directory.filter(ghostFilter);
         await this.setState({ sortedList: FilteredGhostList });
 
+
+        // section calculates what remaining clues are worth checking
+        // basically if the filterghost list has ghosts in it, it will store the value into first result
+        //it will then loop through the list of ghosts and if any any point a ghost is different than the first result
+        //you know that the clue is worth searching for
+        //if the list only contains 1 ghost, or if all ghosts have the same attribute, then the initial irrelevant state remains
         await this.setState({ FreezingIsAClue: 'irrelevant' });
         if (this.state.Freezing === 'unknown' && FilteredGhostList.length > 0) {
             let firstResult = FilteredGhostList[0].Freezing;
@@ -193,37 +199,61 @@ class Wrapper extends React.Component {
                             Freezing
                             <br></br>
                             {this.state.Freezing}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.FreezingIsAClue}
                         </button>
                         <button value="EMF5" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             EMF5
                             <br></br>
                             {this.state.EMF5}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.EMF5IsAClue}
                         </button>
                         <button value="Orbs" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             Orbs
                             <br></br>
                             {this.state.Orbs}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.OrbsIsAClue}
                         </button>
                         <button value="SpiritBox" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             SpiritBox
                             <br></br>
                             {this.state.SpiritBox}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.SpiritBoxIsAClue}
                         </button>
                         <button value="GhostWriting" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             GhostWriting
                             <br></br>
                             {this.state.GhostWriting}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.GhostWritingIsAClue}
                         </button>
                         <button value="Fingerprints" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             Fingerprints
                             <br></br>
                             {this.state.Fingerprints}
+                            <br></br>
+                            ------
+                            <br></br>
+                            {this.state.FingerprintsIsAClue}
                         </button>
                     </div>
 
                     {/* button div */}
                     {/* clue button div */}
-                    <div>
+                    {/* <div>
                         <button value="Freezing" type="button" className={classNameUnknown} disabled>
                             <h4><strong>Freezing</strong></h4>
                             {this.state.FreezingIsAClue}
@@ -248,7 +278,7 @@ class Wrapper extends React.Component {
                             <h4><strong>Fingerprints</strong></h4>
                             {this.state.FingerprintsIsAClue}
                         </button>
-                    </div>
+                    </div> */}
 
                     {/* button div */}
                     {/* list div */}
