@@ -176,6 +176,29 @@ class Wrapper extends React.Component {
             event.target.nextSibling.className = 'collapse';
         }
     };
+
+
+    resetButton = async event => {
+        await this.setState({ FreezingIsAClue: 'Check this!' });
+        await this.setState({ EMF5IsAClue: 'Check this!' });
+        await this.setState({ OrbsIsAClue: 'Check this!' });
+        await this.setState({ SpiritBoxIsAClue: 'Check this!' });
+        await this.setState({ GhostWritingIsAClue: 'Check this!' });
+        await this.setState({ FingerprintsIsAClue: 'Check this!' });
+
+        await this.setState({ Freezing: 'unknown' });
+        await this.setState({ EMF5: 'unknown' });
+        await this.setState({ Orbs: 'unknown' });
+        await this.setState({ SpiritBox: 'unknown' });
+        await this.setState({ GhostWriting: 'unknown' });
+        await this.setState({ Fingerprints: 'unknown' });
+        await this.renderList();
+        //this is put in to reload the page. everything is reset appropriately above BUT
+        //the colors on all the buttons dont change back to grey. 
+
+        //jquery could be used to find all buttons (other than the reset button) and reset their classnames?
+        window.location.reload();
+    };
     render() {
         return (
             <div>
@@ -191,9 +214,9 @@ class Wrapper extends React.Component {
                     ))}
                 </div> */}
                     {/* button div */}
-                    
+
                     {/* if you assign html tags to the clues, the on click will not work properly. if you do current target, itll work, but then only change the word color */}
-            
+
                     <div>
                         <button value="Freezing" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             Freezing
@@ -250,6 +273,12 @@ class Wrapper extends React.Component {
                             {this.state.FingerprintsIsAClue}
                         </button>
                     </div>
+
+                    <button value="Fingerprints" type="button" className="btn btn-warning btn-lg" onClick={this.resetButton}>
+                        Reset All to
+                            <br></br>
+                            unknown
+                        </button>
 
                     {/* button div */}
                     {/* clue button div */}
