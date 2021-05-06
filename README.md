@@ -3,7 +3,7 @@
 <a href='https://phasmaphobia-ghost-filter.herokuapp.com/'>gshaver82</a>
 
 # Screenshot
-<img src='XXtempXX' alt=Screenshot>
+<img src='https://raw.githubusercontent.com/gshaver82/phasmaphobia-ghost-filter/main/phasmaphobiaFilterApp.png' alt=Screenshot>
 
 # Description
 this React web app will allow players of the game phasmaphobia to quickly filter out what ghost type they are dealing with. click once to confirm an evidence, and click again to exclude it. the program will automatically let you know which pieces of evidence are still relevant. for example, if freezing and EMF5 are confirmed checking spirit box and ghost writing is not needed. the only 2 ghosts left at this point both do not have spirit box and ghost writing.so, fingerprints and orbs will be noted with "check this!"
