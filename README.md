@@ -1,6 +1,6 @@
 # Phasmaphobia ghost filter
 # link to deployed app
-<a href='https://phasmaphobia-ghost-filter.herokuapp.com/'>gshaver82</a>
+<a href='https://phasmaphobia-ghost-filter.herokuapp.com/' target='_blank'>deployed app</a>
 
 # Screenshot
 <img src='https://raw.githubusercontent.com/gshaver82/phasmaphobia-ghost-filter/main/phasmaphobiaFilterApp.png' alt=Screenshot>
