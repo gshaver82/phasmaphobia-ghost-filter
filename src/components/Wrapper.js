@@ -1,10 +1,6 @@
 import React from "react";
 import directory from "../directory.json";
 
-
-// TODO use callbacks to have react wait to display the state until after the switch finishes
-
-// TODO if there are multiple ghosts display ONLY what attributes can be used to pare down the number of ghosts in the list 
 let classNameConfirmed = 'btn btn-success btn-lg';
 let classNameUnknown = 'btn btn-secondary btn-lg';
 let classNameExcluded = 'btn btn-danger btn-lg';
@@ -214,9 +210,7 @@ class Wrapper extends React.Component {
                     ))}
                 </div> */}
                     {/* button div */}
-
                     {/* if you assign html tags to the clues, the on click will not work properly. if you do current target, itll work, but then only change the word color */}
-
                     <div>
                         <button value="Freezing" type="button" className={classNameUnknown} onClick={this.buttonPress}>
                             Freezing
@@ -279,37 +273,6 @@ class Wrapper extends React.Component {
                             <br></br>
                             unknown
                         </button>
-
-                    {/* button div */}
-                    {/* clue button div */}
-                    {/* <div>
-                        <button value="Freezing" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>Freezing</strong></h4>
-                            {this.state.FreezingIsAClue}
-                        </button>
-                        <button value="EMF5" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>EMF5</strong></h4>
-                            {this.state.EMF5IsAClue}
-                        </button>
-                        <button value="Orbs" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>Orbs</strong></h4>
-                            {this.state.OrbsIsAClue}
-                        </button>
-                        <button value="SpiritBox" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>SpiritBox</strong></h4>
-                            {this.state.SpiritBoxIsAClue}
-                        </button>
-                        <button value="GhostWriting" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>GhostWriting</strong></h4>
-                            {this.state.GhostWritingIsAClue}
-                        </button>
-                        <button value="Fingerprints" type="button" className={classNameUnknown} disabled>
-                            <h4><strong>Fingerprints</strong></h4>
-                            {this.state.FingerprintsIsAClue}
-                        </button>
-                    </div> */}
-
-                    {/* button div */}
                     {/* list div */}
                     <ul className="list-group">
                         {this.state.sortedList.map(result => (
